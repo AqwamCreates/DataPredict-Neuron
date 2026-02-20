@@ -18,6 +18,8 @@ AHADeepLearningLibrary.MeanSquaredError = function(forwardPropagateFunction1, fo
 	
 	local cost = Operators.Divide(sumDifferenceSquared, numberOfDataDivisor)
 	
+	print(difference())
+	
 	return cost
 	
 end
@@ -27,10 +29,28 @@ AHADeepLearningLibrary.FastMeanSquaredError = function(forwardPropagateFunction1
 	local tensor1, backwardPropagationFunction1, getTensor1 = forwardPropagateFunction1()
 
 	local tensor2, backwardPropagationFunction2, getTensor2 = forwardPropagateFunction2()
+	
+	local differenceTensor
+	
+	local resultValue
+	
+	local getValue = function() 
+		
+		tensor1 = getTensor1()
+
+		tensor2 = getTensor2()
+
+		differenceTensor = AqwamTensorLibrary:subtract(tensor1, tensor2)
+
+		local resultTensor = AqwamTensorLibrary:power(differenceTensor, 2)
+
+		resultValue = AqwamTensorLibrary:sum(resultTensor) / (#resultTensor)
+		
+		return resultValue 
+		
+	end
 
 	local parentBackwardPropagation = function(firstDerivativeTensor)
-		
-		local differenceTensor = AqwamTensorLibrary:subtract(tensor1, tensor2)
 		
 		local numberOfData = #differenceTensor
 
@@ -43,7 +63,7 @@ AHADeepLearningLibrary.FastMeanSquaredError = function(forwardPropagateFunction1
 			backwardPropagationFunction1(chainedFirstDerivativeTensor) 
 		end
 
-		if (backwardPropagationFunction2) then 
+		if (backwardPropagationFunction2) then
 			
 			local chainedFirstDerivativeTensor = AqwamTensorLibrary:multiply(firstDerivativeTensor, differenceTensor, -2)
 
@@ -58,17 +78,9 @@ AHADeepLearningLibrary.FastMeanSquaredError = function(forwardPropagateFunction1
 
 	local forwardPropagationFunction = function() 
 		
-		tensor1 = getTensor1()
+		resultValue = getValue()
 
-		tensor2 = getTensor2()
-		
-		local resultTensor = AqwamTensorLibrary:subtract(tensor1, tensor2)
-		
-		resultTensor = AqwamTensorLibrary:power(resultTensor, 2)
-		
-		local resultValue = AqwamTensorLibrary:sum(resultTensor) / (#resultTensor)
-
-		return resultValue, parentBackwardPropagation
+		return resultValue, parentBackwardPropagation, getValue
 
 	end
 
