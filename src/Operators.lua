@@ -62,7 +62,7 @@ Operators.InputToDescend = function(tensor, learningRate, Optimizer, Regularizer
 
 	end
 
-	local forwardPropagationFunction = function() 
+	local forwardPropagationFunction = function()
 
 		return tensor, backwardPropagationFunction, getTensor
 
@@ -288,13 +288,13 @@ Operators.Power = function(baseForwardPropagateFunction, exponentForwardPropagat
 			
 			local subtractedExponentTensor = AqwamTensorLibrary:subtract(exponentTensor, 1)
 			
-			local partialFirstDerivativeTensor = AqwamTensorLibrary:power(exponentTensor, subtractedExponentTensor)
+			local partialFirstDerivativeTensor = AqwamTensorLibrary:power(baseTensor, subtractedExponentTensor)
 
-			local chainedFirstDerivativeTensor = AqwamTensorLibrary:multiply(firstDerivativeTensor, partialFirstDerivativeTensor)
+			local chainedFirstDerivativeTensor = AqwamTensorLibrary:multiply(firstDerivativeTensor, exponentTensor, partialFirstDerivativeTensor)
 			
 			local targetDimensionSizeArray = AqwamTensorLibrary:getDimensionSizeArray(baseTensor)
 
-			local collapsedFirstDerivativeTensor = collapseTensor(firstDerivativeTensor, targetDimensionSizeArray)
+			local collapsedFirstDerivativeTensor = collapseTensor(chainedFirstDerivativeTensor, targetDimensionSizeArray)
 
 			baseBackwardPropagationFunction(collapsedFirstDerivativeTensor) 
 
