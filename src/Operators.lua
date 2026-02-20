@@ -444,7 +444,7 @@ Operators.UnaryMinus = function(forwardPropagateFunction)
 		
 		resultTensor = AqwamTensorLibrary:unaryMinus(tensor)
 
-		return resultTensor, parentBackwardPropagation, getChildTensor
+		return resultTensor, parentBackwardPropagation, getParentTensor
 
 	end
 
