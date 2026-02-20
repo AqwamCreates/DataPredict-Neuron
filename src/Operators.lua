@@ -302,6 +302,32 @@ Operators.UnaryMinus = function(forwardPropagateFunction)
 
 end
 
+Operators.Sum = function(forwardPropagateFunction)
+
+	local tensor, backwardPropagationFunction, getTensor = forwardPropagateFunction()
+
+	local parentBackwardPropagation = function(firstDerivativeTensor)
+
+		if (backwardPropagationFunction) then backwardPropagationFunction(firstDerivativeTensor) end
+
+	end
+
+	local forwardPropagationFunction = function(parameterDictionary) 
+		
+		local parameterDictionary = parameterDictionary or {}
+		
+		local dimension = parameterDictionary.dimension or parameterDictionary[1]
+		
+		tensor = getTensor()
+
+		return AqwamTensorLibrary:sum(tensor, dimension), parentBackwardPropagation
+
+	end
+
+	return forwardPropagationFunction
+
+end
+
 Operators.Logarithm = function(numberForwardPropagateFunction, baseForwardPropagateFunction)
 	
 	local numberTensor, numberBackwardPropagationFunction, getNumberTensor = numberForwardPropagateFunction()
