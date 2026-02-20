@@ -214,6 +214,64 @@ Operators.Multiply = function(forwardPropagateFunction1, forwardPropagateFunctio
 	
 end
 
+Operators.Divide = function(forwardPropagateFunction1, forwardPropagateFunction2)
+
+	local resultTensor
+
+	local getTensor = function() return resultTensor end
+
+	local tensor1, backwardPropagationFunction1, getTensor1 = forwardPropagateFunction1()
+
+	local tensor2, backwardPropagationFunction2, getTensor2 = forwardPropagateFunction2()
+
+	local parentBackwardPropagation = function(firstDerivativeTensor)
+
+		if (backwardPropagationFunction1) then
+
+			local targetDimensionSizeArray = AqwamTensorLibrary:getDimensionSizeArray(tensor1)
+
+			local collapsedFirstDerivativeTensor = collapseTensor(firstDerivativeTensor, targetDimensionSizeArray)
+
+			local chainedFirstDerivativeTensor = AqwamTensorLibrary:divide(collapsedFirstDerivativeTensor, tensor2)
+
+			backwardPropagationFunction1(chainedFirstDerivativeTensor) 
+
+		end
+
+		if (backwardPropagationFunction2) then
+
+			local targetDimensionSizeArray = AqwamTensorLibrary:getDimensionSizeArray(tensor2)
+			
+			local squaredDivisorTensor = AqwamTensorLibrary:power(tensor2, 2)
+			
+			local numeratorTensor = AqwamTensorLibrary:multiply(firstDerivativeTensor, tensor1, -1)
+			
+			local collapsedNumeratorTensor = collapseTensor(numeratorTensor, targetDimensionSizeArray)
+			
+			local chainedFirstDerivativeTensor = AqwamTensorLibrary:divide(collapsedNumeratorTensor, squaredDivisorTensor)
+
+			backwardPropagationFunction2(chainedFirstDerivativeTensor) 
+
+		end
+
+	end
+
+	local forwardPropagationFunction = function()
+
+		tensor1 = getTensor1()
+
+		tensor2 = getTensor2()
+
+		resultTensor = AqwamTensorLibrary:multiply(tensor1, tensor2)
+
+		return resultTensor, parentBackwardPropagation, getTensor
+
+	end
+
+	return forwardPropagationFunction
+
+end
+
 Operators.Power = function(baseForwardPropagateFunction, exponentForwardPropagateFunction)
 	
 	local resultTensor
@@ -395,8 +453,12 @@ Operators.UnaryMinus = function(forwardPropagateFunction)
 end
 
 Operators.Sum = function(forwardPropagateFunction, dimension)
+	
+	local resultTensor
+	
+	local getParentTensor = function() return resultTensor end
 
-	local tensor, backwardPropagationFunction, getTensor = forwardPropagateFunction()
+	local tensor, backwardPropagationFunction, getChildTensor = forwardPropagateFunction()
 
 	local parentBackwardPropagation = function(firstDerivativeTensor)
 
@@ -406,9 +468,11 @@ Operators.Sum = function(forwardPropagateFunction, dimension)
 
 	local forwardPropagationFunction = function() 
 		
-		tensor = getTensor()
+		tensor = getChildTensor()
+		
+		resultTensor = AqwamTensorLibrary:sum(tensor, dimension)
 
-		return AqwamTensorLibrary:sum(tensor, dimension), parentBackwardPropagation, getTensor
+		return resultTensor, parentBackwardPropagation, getParentTensor
 
 	end
 
