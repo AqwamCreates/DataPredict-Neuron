@@ -1,115 +1,161 @@
-# Terms And Conditions Violation Bounty Reward Information
+# TERMS AND CONDITIONS
 
-## License Violation Reporting And Bounty Rewards
+## License
 
-If you suspect that any license violations, including those involving your own company/group, have occurred, you may be eligible for a bounty reward of up to 50% of the value of the violating company/group, subject to the following terms:
+These terms and conditions (“Agreement”) is a legal agreement between you (or company or organization) recognized as “User” and Aqwam Harish Aiman recognised as “Licensor” for the use of DataPredict Axon Library (“Library”) within this terms and conditions. By using the Library, User, agrees to be bound by the terms of this Agreement.
 
-* Eligible Violations:
-  
-  * Violations that would qualify for a bounty include, but are not limited to, failure to release code that interacts with the Library in accordance with the terms of the License.
-  
-  * The violation must be a clear breach of the license, such as not publicly releasing interacting code when required by the License or failing to adhere to the proper usage conditions outlined within the License.
+## Definitions
 
-* Reporting Process:
-  
-  * If you suspect a violation, please contact the Licensor directly for confirmation rather than relying solely on the statements of the company or group involved. This will ensure the claim is properly assessed and avoids unnecessary confusion or potential misinformation.
-  
-  * A detailed report with evidence of the violation must be provided to substantiate your claim. This may include documentation, links, or any other relevant proof that supports the assertion of a violation.
+* The definition of "Interaction" shall include, but is not limited to:
 
-* Bounty Reward Calculation:
-  
-  * The bounty reward will be based on the severity of the violation, the ease of prosecution, and the level of involvement of the individual(s) or team responsible for the violation.
-  
-  * The reward will not necessarily reflect the full financial impact or value of the violating company/group but will be a percentage of the value associated with the violation.
-  
-  * The maximum bounty reward is 50% of the value of the violating company/group. The actual reward may be lower depending on the specifics of the case, such as the complexity of the violation, the difficulty in proving it, and the overall damages incurred.
+  * Direct Usage: Any instance where the Library is explicitly called, linked, imported, compiled, or otherwise included as part of another program, application, system, or project.
 
-* Guidelines for Evaluation:
-  
-  * Severity of the Violation: This is assessed based on how serious the breach is in relation to the terms of the license. For example, willfully ignoring the release of interacting code or failing to properly attribute the library might warrant a higher reward compared to more minor violations.
-  
-  * Evidence Strength: The bounty is only applicable if you provide clear, substantial evidence of the violation. A mere suspicion without solid proof may not qualify for a bounty.
-  
-  * Ease of Prosecution: If the violation is straightforward and can be easily proven, a larger portion of the maximum bounty may be awarded. If the case is complex, involves multiple parties, or lacks clear evidence, the reward may be smaller or not applicable.
-
-* Level of Responsibility:
-  
-  * Higher-Level Decision Makers: If the violation is traced back to individuals in higher positions (such as CEO, CFO, CTO, Project Manager, etc.), the violation is considered to be more systematic or institutional in nature. This could indicate that the violation was part of the organization's strategy or internal decision-making.
+  * Indirect Usage: Any scenario where the Library’s functionality, outputs, or capabilities are utilized, whether or not the Library is directly linked or embedded in the project. This includes intermediate layers, middleware, or third-party tools that rely on the Library to perform tasks or produce results.
     
-    * Reward Increase Based on Role: A violation involving higher-level management or executives will increase the bounty reward due to the systemic nature of the breach. The involvement of a senior leader may indicate that the violation was planned or approved at an organizational level.
+  * Dependency Relationships: Any project, software, or system that lists the Library as a dependency, either explicitly or implicitly, through build systems, package managers, or runtime requirements.
     
-    * For example:
-      
-      * CEO / Executive Level: Highest bounty reward due to the potential for widespread, organizational-level violations (up to 50% of the value).
-      
-      * Project Manager / Senior Developer: Lower reward, but still significant depending on the evidence of the violation (e.g., 25-30% of the value).
+  * Data Interaction: Any scenario where the Library is used to process, generate, manipulate, or analyze data, regardless of whether the resulting data is integrated back into the Library or used externally.
+    
+  * Asset Interaction: The creation, modification, or usage of any models, datasets, media files, or other assets through the Library, either directly or indirectly.
+    
+  * Dynamic or Runtime Integration: Any instance where the Library is loaded into memory, referenced, or otherwise utilized during execution, even if not included at compile time.
+    
+  * Network or API Communication: Any usage of the Library over a network, API, or other forms of communication, whether the Library is hosted locally, remotely, or on a third-party service.
   
-  * Lower-Level Employees: If the violation is traced back to a lower-level employee or is seen as an isolated mistake, the reward may be lower (e.g., 10-15% of the value) based on the fact that the violation was not part of a larger, coordinated action by higher management. However, if the violation is notified to the higher level decision makers by the Licensor and these violations are not addressed by them, then it will be counted as a violation made by the higher-level decision makers.
-
-* Protection from Personal Liability:
+  * Derivative Works or Extensions: Any projects, scripts, adapters, wrappers, or tools that extend, modify, or adapt the Library's functionality, even if the Library’s original source code remains unaltered.
   
-  * The reward system is intended to protect individuals from personal liability in cases of license violations. Violations will typically be pursued against the company/group, not individuals, unless the individual is directly responsible for the breach.
+  * Transitive Interaction: Any project or system that indirectly interacts with the Library via other software, services, or layers that themselves interact with the Library.
   
-  * If an individual within a company/group is unaware of the violation and reports it accurately, they are still eligible for the reward, but personal liability will not be imposed on them for simply reporting the issue.
+  * Outputs and Dependencies: Any situation where outputs generated by the Library (e.g., processed data, trained models, or compiled binaries) are used in subsequent workflows, projects, or systems, whether or not the Library itself is embedded or linked in those contexts.
 
-## False Accusations, Defamation And Criminal Liability
+  * Supportive or Auxiliary Use: Any usage of the Library to aid in the development, testing, debugging, or execution of other projects, systems, or applications.
 
-* Any individual or entity making false accusations or engaging in defamation against a company/group or individual under this License will be subject to criminal prosecution under applicable criminal law, including but not limited to laws surrounding defamation, libel, and slander.
+* The definition of "Commercial Use" encompasses all forms of utilization and application, including integration, storing, and hosting from another computer, server, or machine. This applies to companies (or individuals, if none) whose combined gross revenue (including from subsidiaries or related entities) exceeds $3,000 within 365 days (not per 365 days) or those engaged in business-to-business activities.
 
-* If it is determined that a violation report was made with malicious intent, fabrication, or false information, the reporting party may face criminal penalties, including fines or imprisonment, as prescribed by the relevant laws.
+* The definition of "User's Third Parties" shall include, but is not limited to:
 
-* Penalties for defamation or false accusations can include, but are not limited to:
+  * Any individual or entity that receives, accesses, or benefits from the Library through User's actions;
+
+  * Clients, customers, contractors, subcontractors, partners, affiliates, or any entity to which User provides access to the Library.
+
+## Commercial Use Conditions
+
+* Commercial Use is permitted subject to the following conditions, where if the User engages in commercial use, the Licensor reserves the right, at its sole discretion and without prior notice, to:
+
+  * Provide all User's Interacting assets to Licensor for review;
+ 
+  * Release any or all User's Interacting assets under Apache 2.0 license either publicly, privately to Licensor, or to designated third parties;
+ 
+  * Determine the timing and manner of such release.
+
+* The User may not remove codes that the Licensor has released under Apache 2.0 license pursuant to this Agreement.
+
+* The User agrees that release of Interacting assets under Apache 2.0 license constitutes reasonable alternative consideration and benefit in lieu for the use and posession of the Library. This remedy represents the parties' good faith estimate of fair compensation.
+
+* The Apache 2.0 license can be viewed here: https://choosealicense.com/licenses/apache-2.0/.
+
+## Prohibited Actions
+
+User shall not:
+
+* Sell, resell, distribute, sublicense, or otherwise transfer the Library, in whole or in part, to any third party, whether for profit or not;
+
+* Modify, adapt, translate, reverse engineer, decompile, disassemble, or create derivative works of the Library;
+
+* Remove or alter any copyright, trademark, or other proprietary notices or labels contained in the Library;
+
+* Copyright, trademark, or patent any source codes or icons contained in the Library, either individually or as a collection;
+
+* Include the icons from the Library in projects that do not utilize the Library;
+
+* Use the Library for cheat/exploit development, use, distribution, or any activities falling within that category, unless explicitly approved by the person/company/organization that owns the target computer/server/machine;
+
+* Use the Library for anti-cheat or anti-exploit evasion purposes, or engage in any actions intended to circumvent security measures, unless explicitly approved by the person/company/organization that owns the target computer/server/machine;
+
+* Use the codes, content, or any part of the Library as a dataset, input for artificial intelligence, or for any similar purpose aiming to derive new data, content, or applications;
+
+* Use the Library in any manner that violates any applicable laws or regulations.
+
+Should the User violates the prohibited actions as stated above, the User must pay monetary compensation. No other forms of compensation will be accepted.
+
+## Ownership and Credit
+
+* User acknowledges that Licensor owns all rights, title, and interest in and to the Library, and User shall not claim ownership of the Library or any part thereof. User shall attribute to the Licensor in all publications or presentations that uses the Library. The attributions must be placed in areas that are commonly viewed by the general public. The attributions must also include one of the combinations of materials as stated below:
   
-  * Compensatory damages to the accused party for harm caused by the false accusations or defamation.
+  * The Library's icon and the Library's name.
+    
+  * The Library's name and the Library's source.
+    
+  * The Library's icon and the Library's source.
+    
+  * The Licensor's full name and the Library's source.
+    
+  * The Licensor's full name and the Library's name.
+    
+* If the User remove the attributions without the Licensor’s permission, User shall pay User shall pay compensatory damages to the Licensor based on a percentage of commercial value generated by them and losses to Licensor as a result from not displaying the attributions. Only the monetary forms of compensation will be accepted.
+
+## Removal of Credit
+
+* If the User wish to remove the credits or source information from the User’s publication or presentation that uses the Library, the User shall seek the Licensor’s confirmation that the Library have been removed but may subject to commercial agreement.
+
+* Once the Licensor have agreed that the Library have been removed, the User may remove the credits or source information in all publications or presentations that uses the Library.
+
+## Compensatory Damages for Cheating and Exploiting, Cheat and Exploit Distribution, Anti-Cheat and Anti-Exploit Evasion, Anti-Cheat and Anti-Exploit Evasion Distribution
+
+In the event that the User uses the Library for cheating and exploiting, cheat and exploit development, cheat and exploit distribution, anti-cheat and anti-exploit evasion, or anti-cheat and anti-exploit evasion distribution, and such actions result in damages to the Licensor, the User shall be liable for compensatory damages. These damages may include, but are not limited to, the following:
+
+* Loss of Revenue: The User shall be responsible for compensating the Licensor for any loss of revenue incurred due to cheating and exploiting, cheat and exploit distribution, anti-cheat and anti-exploit evasion, or anti-cheat and anti-exploit evasion distribution activities.
+
+* Profits Derived: The User shall be liable to surrender any profits derived directly or indirectly from cheating and exploiting, cheat and exploit distribution, anti-cheat and anti-exploit evasion, or anti-cheat and anti-exploit evasion distribution, and these profits shall be awarded to the Licensor.
+
+* Legal Costs: The User shall bear the costs associated with any legal actions, including but not limited to attorney's fees and court costs, initiated by the Licensor to address the cheating and exploiting, cheat and exploit distribution, anti-cheat and anti-exploit evasion, or anti-cheat and anti-exploit evasion distribution activities.
+
+* Reputation Damage: If the cheating and exploiting, cheat and exploit distribution, anti-cheat and anti-exploit evasion, or anti-cheat and anti-exploit evasion distribution activities result in damage to the reputation of the Licensor or the Library, the User shall be liable for compensating them for any harm to their reputation.
+
+* Mitigation Costs: The User shall cover the costs incurred by the Licensor in their efforts to mitigate and prevent the effects of cheating and exploiting, cheat and exploit distribution, anti-cheat and anti-exploit evasion, or anti-cheat and anti-exploit evasion distribution.
+
+The determination of compensatory damages shall be made by a court of competent jurisdiction, and the User shall be legally bound to fulfill their obligations regarding such damages. The User understands that the Licensor reserves the right to pursue any available legal remedies to enforce these compensatory damages. Only the monetary forms of compensation will be accepted.
+
+## Waiver of Confidentiality Rights
+
+The User acknowledges and agrees that, in the event Licensor have a reasonable belief of a violation of this Agreement, Licensor may request User provide relevant assets for review. User may assert confidentiality, but the User's refusal may be considered in determining the violation. The User also agrees that the User will not interfere the Licensor's review from the User's Third Parties.
+
+## In Relation Of User's Third Parties
+
+* The User acknowledges that if the Library is used or possesed by the User's Third Parties, the User would be liable for User's Third Parties' use and possesion of the Library.
+
+* The User may avoid liability for User's Third Parties' violations if:
+
+  * The User had written agreement with User's Third Party requiring compliance;
   
-  * Reputational damage penalties, which may include fines or legal action to rectify the harm caused to the reputation of the accused company or individual.
+  * The User made reasonable efforts to monitor compliance;
   
-  * Legal costs: The costs of defending against a false accusation, including legal fees, court costs, and any other related expenses.
-  
-  * Compensatory damages: The company or individual defamed may seek compensation for emotional distress, harm to reputation, and any tangible financial losses suffered due to the false accusation.
+  * The User promptly notifies Licensor upon discovering violation.
 
-The individual responsible for the false accusation or defamation will be required to pay compensatory damages, and the Licensor reserves the right to pursue legal action for damages resulting from a false report or malicious defamation.
+## Liability
 
-## Damages As A Result Of False Accusations Or Defamation
+The Library is provided "AS IS" and without warranty of any kind. Licensor shall not be liable for any damages or losses, including but not limited to direct, indirect, incidental, consequential, or punitive damages arising out of the use or inability to use the Library.
 
-* If a company or group is wrongfully accused or defamed due to a false report or malicious claim, the individual responsible for the false accusation will be liable for the damages incurred, including but not limited to:
-  
-  * Loss of business: Any revenue lost as a direct result of the false accusation or defamation.
-  
-  * Reputational damage: Costs associated with repairing the company's or individual’s reputation, including legal and public relations costs.
-  
-  * Legal costs: The costs of defending against a false accusation, including legal fees, court costs, and any other related expenses.
-  
-  * Compensatory damages: The company or individual defamed may seek compensation for emotional distress, harm to reputation, and any tangible financial losses suffered due to the false accusation.
+## Governing Law
 
-The individual responsible for the false accusation or defamation will be required to pay compensatory damages, and the Licensor reserves the right to pursue legal action for damages resulting from a false report or malicious defamation.
+This Agreement shall be governed by and construed in accordance with the laws of a jurisdiction selected at the sole discretion of the Licensor. In the absence of a choice by the Licensor, the laws of Malaysia shall apply.
 
-## Exclusions And Terms For False Claims
+## Changes to Terms and Conditions
 
-* No Rewards for False Claims: If it is determined that the violation was fabricated, misleading, or not substantiated by evidence, no reward will be given, and the reporting individual may face legal consequences, including criminal prosecution for defamation or false accusations.
+Licensor reserves the right to modify this Agreement at any time without prior notice. Modified terms will be posted in the Library's repository. The modified terms will become effective 30 days after posting for all Users who continue to use the Library. User's continued use of the Library after this 30-day period constitutes acceptance of the modified terms. If User does not agree to the modified terms, User must stop all use and possession of the Library.
 
-* Bounty Restrictions: Any reward for reporting a violation is contingent upon the truthfulness and validity of the accusation. If the report is determined to be false or misleading, the individual will forfeit any claim to the reward and may be legally liable for any damages caused by the false claim.
+## Termination
 
-## Summary
+Licensor may terminate this Agreement at any time if User breaches any provision of this Agreement. Upon termination, User shall immediately cease all use of the Library and destroy all copies of the Library in its possession.
 
-* Maximum reward: Up to 50% of the value of the violating company/group.
+## No Waiver
 
-* Eligibility: Only violations that clearly breach the license and are accompanied by strong evidence will qualify.
+No waiver by Licensor of any breach of this Agreement by Licensee shall be considered as a waiver of any subsequent breach of the same or any other provision.
 
-* Reporting process: Report directly to the Licensor with documentation; do not rely on company statements alone.
+## Entire Agreement
 
-* Reward based on severity, evidence, ease of prosecution, and the level of involvement of decision-makers.
-  
-  * Higher-level violations (e.g., CEO or executive involvement) will result in higher rewards.
-  
-  * Lower-level violations (e.g., individual employee actions) will result in lower rewards.
+This Agreement constitutes the entire agreement between User and Licensor with respect to the subject matter hereof and supersedes all prior or contemporaneous communications and proposals, whether oral or written, between User and Licensor.
 
-* Criminal liability for false accusations or defamation, with penalties including fines, legal costs, and compensatory damages for the harmed parties.
+In the event that any provision within this Agreement is found to be invalid, illegal, or unenforceable under any applicable law or by a court of competent jurisdiction, the remaining provisions of this Agreement shall remain in full force and effect, and the invalid, illegal, or unenforceable provision shall be deemed modified to the extent necessary to make it valid, legal, and enforceable, preserving the intentions of the parties to the maximum extent possible.
 
-* Damages for false accusations: Any company or individual falsely accused will be entitled to compensation for damages from the reporting individuals, including reputational harm, business losses, and legal fees.
-
-## Example
-
-If a CEO of Company X approves the decision to use the library commercially without releasing the interacting code, and someone reports this violation with sufficient evidence, the person reporting the violation could receive a larger bounty reward (up to 50% of the company's value), given the systemic nature of the violation at the executive level.
-
-Conversely, if a project manager or developer fails to release the interacting code but it is seen as an isolated error rather than a systemic decision, the reward would be smaller (around 25-30%) based on the role and responsibility involved.
+By using or possessing the Library, User agrees to be bound by the terms of this Agreement. If User does not agree to the terms of this Agreement, User shall not use the Library.
