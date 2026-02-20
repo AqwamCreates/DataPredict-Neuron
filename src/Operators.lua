@@ -32,14 +32,32 @@ Operators.Input = function(tensor)
 	
 end
 
-Operators.InputToDescend = function(tensor, learningRate)
+Operators.InputToDescend = function(tensor, learningRate, Optimizer, Regularizer)
 	
 	local getTensor = function() return tensor end
 	
+	-- Can use DataPredict Axon Optimizer and Regularizer here.
+	
 	local backwardPropagationFunction = function(firstDerivativeTensor)
 		
-		firstDerivativeTensor = AqwamTensorLibrary:multiply(learningRate, firstDerivativeTensor)
+		if (Regularizer) then
 
+			local regularizationTensor = Regularizer:calculate{tensor}
+
+			firstDerivativeTensor = AqwamTensorLibrary:add(firstDerivativeTensor, regularizationTensor)
+
+		end
+		
+		if (Optimizer) then
+			
+			firstDerivativeTensor = Optimizer:calculate{learningRate, firstDerivativeTensor}
+			
+		else
+			
+			firstDerivativeTensor = AqwamTensorLibrary:multiply(learningRate, firstDerivativeTensor)
+			
+		end
+		
 		tensor = AqwamTensorLibrary:subtract(tensor, firstDerivativeTensor)
 
 	end
@@ -234,9 +252,9 @@ Operators.DotProduct = function(forwardPropagateFunction1, forwardPropagateFunct
 	
 end
 
-Operators.Exponent = function(forwardPropagateFunction1)
+Operators.Exponent = function(forwardPropagateFunction)
 	
-	local tensor, backwardPropagationFunction, getTensor = forwardPropagateFunction1()
+	local tensor, backwardPropagationFunction, getTensor = forwardPropagateFunction()
 	
 	local parentBackwardPropagation = function(firstDerivativeTensor)
 
@@ -254,12 +272,34 @@ Operators.Exponent = function(forwardPropagateFunction1)
 
 		tensor = getTensor()
 
-		return AqwamTensorLibrary:multiply(AqwamTensorLibrary:exponent(tensor), parentBackwardPropagation)
+		return AqwamTensorLibrary:exponent(tensor), parentBackwardPropagation
 
 	end
 
 	return forwardPropagationFunction
 	
+end
+
+Operators.UnaryMinus = function(forwardPropagateFunction)
+
+	local tensor, backwardPropagationFunction, getTensor = forwardPropagateFunction()
+
+	local parentBackwardPropagation = function(firstDerivativeTensor)
+
+		if (backwardPropagationFunction) then backwardPropagationFunction(AqwamTensorLibrary:unaryMinus(firstDerivativeTensor)) end
+
+	end
+
+	local forwardPropagationFunction = function() 
+
+		tensor = getTensor()
+
+		return AqwamTensorLibrary:unaryMinus(tensor), parentBackwardPropagation
+
+	end
+
+	return forwardPropagationFunction
+
 end
 
 Operators.Logarithm = function(numberForwardPropagateFunction, baseForwardPropagateFunction)
@@ -286,7 +326,7 @@ Operators.Logarithm = function(numberForwardPropagateFunction, baseForwardPropag
 
 				partialFirstDerivativeFunctionToApply = function (number, base) return (1 / (number * math.log(base))) end
 
-				partialFirstDerivativeTensor = AqwamTensorLibrary:applyFunction(partialFirstDerivativeFunctionToApply, numberTensor, pureBaseTensor)
+				partialFirstDerivativeTensor = AqwamTensorLibrary:applyFunction(partialFirstDerivativeFunctionToApply, numberTensor, baseTensor)
 
 			else
 
@@ -310,7 +350,7 @@ Operators.Logarithm = function(numberForwardPropagateFunction, baseForwardPropag
 
 			local partialFirstDerivativeFunctionToApply = function (number, base) return -(math.log(number) / (base * math.pow(math.log(base), 2))) end
 
-			local partialFirstDerivativeTensor = AqwamTensorLibrary:applyFunction(partialFirstDerivativeFunctionToApply, numberTensor, baseTensorDimensionSizeArray)
+			local partialFirstDerivativeTensor = AqwamTensorLibrary:applyFunction(partialFirstDerivativeFunctionToApply, numberTensor, baseTensor)
 			
 			local chainedFirstDerivativeTensor = AqwamTensorLibrary:multiply(firstDerivativeTensor, partialFirstDerivativeTensor)
 			
@@ -323,6 +363,18 @@ Operators.Logarithm = function(numberForwardPropagateFunction, baseForwardPropag
 		end
 
 	end
+	
+	local forwardPropagationFunction = function() 
+
+		numberTensor = getNumberTensor()
+		
+		baseTensor = getBaseTensor()
+
+		return AqwamTensorLibrary:logarithm(numberTensor, baseTensor), parentBackwardPropagation
+
+	end
+
+	return forwardPropagationFunction
 	
 end
 
