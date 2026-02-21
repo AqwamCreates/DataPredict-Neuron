@@ -402,7 +402,7 @@ Operators.Exponent = function(forwardPropagateFunction)
 
 		if (backwardPropagationFunction) then
 
-			local chainedFirstDerivativeTensor = AqwamTensorLibrary:multiply(AqwamTensorLibrary:exponent(tensor), firstDerivativeTensor)
+			local chainedFirstDerivativeTensor = AqwamTensorLibrary:multiply(resultTensor, firstDerivativeTensor)
 
 			backwardPropagationFunction(chainedFirstDerivativeTensor) 
 
